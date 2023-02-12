@@ -5,8 +5,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "scene_view.hpp"
 #include "events.hpp"
+#include "scene_view.hpp"
+#include "sprites.hpp"
 
 
 class Application {

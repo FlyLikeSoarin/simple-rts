@@ -6,24 +6,23 @@
 
 class SceneView {
 public:
-// Methods
+// Constructors
     SceneView(sf::RenderWindow &window);
 
+// Methods
     void draw(sf::Drawable &drawable);
 
     sf::Vector2f get_view_center() const;
-
     void set_view_center(const sf::Vector2f &view_center);
-
     void translate_view(const sf::Vector2f &offset);
 
     float get_view_size() const;
-
     void set_view_size(float view_size);
-
     void zoom_view(float multiplier);
+    float get_scale_factor() const;
 
     sf::Vector2f get_scene_position(const sf::Vector2f &position) const;
+    sf::Vector2f get_scene_scale(const sf::Vector2f &position) const;
 
 // Variables
     sf::RenderWindow &window;

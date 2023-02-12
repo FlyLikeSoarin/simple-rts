@@ -34,16 +34,24 @@ void SceneView::zoom_view(float multiplier) {
     this->set_view_size(this->get_view_size() * multiplier);
 }
 
+float SceneView::get_scale_factor() const {
+    return 500.0f / this->view_size;
+}
+
 sf::Vector2f SceneView::get_scene_position(const sf::Vector2f &position) const {
     return this->view_transform.getInverse().transformPoint(position);
 }
 
+sf::Vector2f SceneView::get_scene_scale(const sf::Vector2f &position) const {
+    return position / this->get_scale_factor();
+};
+
 void SceneView::_update_view_transform() {
-    float scale_factor = 500.0f / this->view_size;
+    float scale_factor = this->get_scale_factor();
 
     view_transform = (
         sf::Transform()
-        .translate(-this->view_center *  scale_factor)
+        .translate(-this->view_center * scale_factor)
         .scale(scale_factor, scale_factor)
     );
 }

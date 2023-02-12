@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_subdirectory(SFML)
 set(CMAKE_OSX_ARCHITECTURES "arm64")
 
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+
 file(GLOB sfml_playground_src "source/*.cpp")
 message(${sfml_playground_src})
 add_executable(sfml_playground ${sfml_playground_src})
